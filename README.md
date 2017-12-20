@@ -1,1 +1,1 @@
-# This repository is all solutions for LeetCode done in Java
+# This repository is for Java algorithms for LeetCode 
