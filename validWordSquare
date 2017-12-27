@@ -1,0 +1,24 @@
+public class Solution {
+     public boolean validWordSquare(List<String> words) {
+            if(words == null) return false;
+            if(words.size() <= 1) return true;
+    
+            for(int i = 0; i < words.size(); i++)
+            {
+                   String s = words.get(i);
+                   for(int j = 0; j < s.length(); j++)
+                   {
+                         try
+                         {
+                               if(s.charAt(j) != words.get(j).charAt(i)) return false;
+                         }
+                         catch(Exception e)
+                         {
+                               return false;
+                         }
+                   }
+           }
+    
+         return true;
+   }
+}
