@@ -1,0 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode insertionSortList(ListNode head) {
+        if(head == null || head.next == null)
+            return head;
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        while(head != null && head.next != null){
+            if(head.val > head.next.val){
+                ListNode toInsert = head.next;
+                ListNode toInsertPre = dummyHead;
+                // sort the list
+                while(toInsertPre.next.val < toInsert.val){
+                    toInsertPre = toInsertPre.next;
+                }
+                // add the card to the sorted list 
+                head.next = toInsert.next;
+                toInsert.next = toInsertPre.next;
+                toInsertPre.next = toInsert;
+            }else{
+                head = head.next;
+            }
+        }
+        return dummyHead.next;
+    }
+}
